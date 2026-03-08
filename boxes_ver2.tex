@@ -1,0 +1,279 @@
+\documentclass[dvipdfmx]{jsarticle}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage[top=25truemm,bottom=25truemm,
+left=30truemm,right=30truemm]{geometry}
+\usepackage{tcolorbox}
+\tcbuselibrary{breakable,theorems,skins}
+
+\definecolor{hanaasagi}{cmyk}{.79,.41,.31,0}
+\definecolor{kon}{cmyk}{.95,.88,.38,.04}
+\definecolor{nomesihana}{cmyk}{.8,.6,.46,.03}
+\definecolor{ebi}{cmyk}{.56,1.0,.79,.41}
+
+%\begin{tcolorbox}
+%[
+  %fonttitle=\bfseries\upshape, %upshapeで斜体解消
+  %fontupper=\itshape, 
+  %title,%タイトル	
+  %colback,%box中身の背景色
+  %colbacktitle,%タイトルの背景色	
+  %colframe,%boxのフレームの色
+  %coltitle,%タイトルの文字色
+  %coltext%文章の文字色	
+  %arc %フレームの丸さ
+  %breakable,%ページマタギOK
+  %titlerule=0mm, %タイトル線
+  %toptitle=2mm, %タイトル上
+  %bottomtitle=0mm, %タイトル下
+  %top=0mm, %本文上
+  %bottom=2mm, %本文下
+  %description formatter=\underline{},　%タイトル装飾
+  %separator sign none, タイトル左装飾
+  %terminator sign none タイトル右装飾
+%]
+
+
+
+%use counter from=他のbox
+\def\thefootnote{\roman{footnote}}
+\tcbset{mine/.style={
+fonttitle=\bfseries\upshape, %upshapeで斜体解消
+%fontupper=\itshape, 
+enhanced,
+breakable=true,
+toprule=0.5pt,rightrule=0.5pt,leftrule=2pt,bottomrule=0.7pt,
+titlerule=0mm,
+toptitle=1.5mm,
+bottomtitle=0mm,
+top=0mm,
+bottom=1.5mm,
+coltext=black,
+description formatter=\underline,
+separator sign dash,
+sharp corners,
+drop fuzzy shadow
+}}
+
+\tcbset{mine2/.style={
+fonttitle=\bfseries\upshape, %upshapeで斜体解消
+%fontupper=\itshape, 
+enhanced,
+breakable=true,
+toprule=1pt,rightrule=1pt,leftrule=1pt,bottomrule=1pt,
+top=0mm,
+bottom=1.5mm,
+coltext=black,
+separator sign dash,
+%sharp corners,
+boxed title style={colframe=white,colback=white,
+left=-0.1mm,right=-0.1mm},
+attach boxed title to top left=
+  {xshift=4mm, yshift*=-\tcboxedtitleheight/2}
+}}
+
+\newtcbtheorem[number within=section]{defbox}{Definition}
+{
+mine,
+colframe=ebi,
+coltitle=ebi,
+colback=ebi!1!white,
+colbacktitle=ebi!1!white
+}{def}
+%refで必要な語
+
+\newtcbtheorem[use counter from=defbox]{thbox}{Theorem}
+{
+mine,
+colframe=hanaasagi,
+coltitle=hanaasagi,
+colback=hanaasagi!1!white,
+colbacktitle=hanaasagi!1!white
+}{th}
+%--------------------------------------------------
+\newtcbtheorem[use counter from=defbox]{propbox}{Proposition}
+{
+mine,
+colframe=ebi,
+coltitle=ebi,
+colback=ebi!1!white,
+colbacktitle=ebi!1!white
+}{prop}
+
+\newtcbtheorem[use counter from=defbox]{lembox}{Lemma}
+{
+mine,
+colframe=kon,
+coltitle=kon,
+colback=kon!0!white,
+colbacktitle=kon!0!white
+}{lem}
+%---------------------------------------------------
+\newtcbtheorem[use counter from=defbox]{corbox}{Corollary}
+{
+mine2,
+colframe=hanaasagi,
+coltitle=hanaasagi,
+colback=hanaasagi!0!white,
+colbacktitle=hanaasagi!0!white,
+sharp corners
+}{cor}
+
+%---------------------------------------------------
+\newtcbtheorem[use counter from=defbox]{cautionbox}{注意}
+{
+mine2,
+%toprule=1pt,rightrule=1pt,leftrule=1pt,bottomrule=1pt,
+colframe=ebi,
+coltitle=ebi,
+colback=ebi!0!white,
+colbacktitle=ebi!0!white
+}{caution}
+
+%-------------------------------------------------
+% \newtcbtheorem[use counter from=defbox]{exbox}{例}
+% {
+% mine2,
+% %toprule=1pt,rightrule=1pt,leftrule=1pt,bottomrule=1pt,
+% colframe=kon,
+% coltitle=kon,
+% colback=kon!0!white,
+% colbacktitle=kon!0!white,
+% }{ex}
+
+%-------------------------------------------------
+
+\newtcbtheorem[use counter from=defbox]{exbox}{例}
+{
+fonttitle=\bfseries\upshape, %upshapeで斜体解消
+%fontupper=\itshape, 
+enhanced,
+breakable,
+toprule=0pt,rightrule=0pt,leftrule=0pt,bottomrule=0pt,
+titlerule=0mm,
+toptitle=1.5mm,
+bottomtitle=0mm,
+top=1mm,
+bottom=1.5mm,
+coltext=black,
+sharp corners,
+description formatter=\underline,
+separator sign dash,
+colframe=kon,
+coltitle=kon,
+colback=kon!4!white,
+colbacktitle=kon!4!white,
+drop fuzzy shadow,
+}{ex}
+
+%-------------------------------------------------
+
+% \newtcbtheorem[use counter from=defbox]{exbox}{例}
+% {
+% fonttitle=\bfseries\upshape, %upshapeで斜体解消
+% %fontupper=\itshape, 
+% enhanced,
+% breakable=true,
+% toprule=0pt,rightrule=0pt,leftrule=0pt,bottomrule=0pt,
+% toptitle=1.5mm,
+% top=2mm,
+% bottom=1.5mm,
+% titlerule=0mm,
+% coltext=black,
+% separator sign dash,
+% sharp corners,
+% % colframe=kon,
+% coltitle=kon,
+% colback=kon!3!white,
+% colbacktitle=kon!3!white,
+% description formatter=\underline,
+%  }{ex}
+
+
+
+%-------------------------------------------------
+\newcommand{\pr}[1]{
+{\bf \color{ebi} (証明)}\\
+#1\qed
+}
+%--------------------------------------------------------
+\newtcolorbox[auto counter,number within=section]{qbox}[2][]{
+ enhanced,
+ fonttitle=\bfseries\upshape, %upshapeで斜体解消
+  %fontupper=\itshape, 
+  breakable,
+  titlerule=0mm,
+  toptitle=0mm,
+  bottomtitle=0mm,
+  top=0.5mm,
+  bottom=0mm,
+  coltext=black,
+coltitle=kon,
+colbacktitle=kon!0!white,
+colback=kon!0!white,
+colframe=kon!0!white,
+title={$\clubsuit$\ 問題\thetcbcounter\ $\clubsuit$},
+#1,
+label=Q:#2
+}
+\setcounter{tcb@cnt@qbox}{0}
+%---------------------------------------------------
+\newtcolorbox[auto counter,number within=section]{exqbox}[3][]{
+mine2,
+%toprule=1pt,rightrule=1pt,leftrule=1pt,bottomrule=1pt,
+coltitle=kon,
+colbacktitle=kon!0!white,
+colback=kon!0!white,
+colframe=kon,
+title={$\clubsuit$\ 例題\thetcbcounter\ $\clubsuit$ \ #2},
+#1,
+label=#3,
+sharp corners
+}
+%---------------------------------------------------
+
+\newtcolorbox{freebox}[2][]{
+mine2,
+coltitle=nomesihana,
+colbacktitle=nomesihana!0!white,
+colback=nomesihana!0!white,
+colframe=nomesihana,
+sharp corners,
+title={#2},
+#1
+}
+%--------------------------
+
+\begin{document}
+\begin{defbox}{DefTitle}{deflabel}
+内容
+\end{defbox}
+定義\ref{def:deflabel}
+\begin{thbox}{ThTitle}{thlabel}
+内容
+\end{thbox}
+\begin{exbox}{ExTitle}{exlabel}
+内容
+\end{exbox}
+\begin{propbox}{PropTitle}{proptitle}
+内容
+\end{propbox}
+\begin{qbox}{qboxlabel}
+内容 ラベルあり
+\end{qbox}
+問題\ref{Q:qboxlabel}では
+命題\ref{prop:proptitle}
+\begin{freebox}{FreeTitle}
+内容 ラベル無し。にゃー
+\end{freebox}
+\section{確率変数と確率分布}
+\begin{exqbox}{タイトル}{ラベル}
+naiyou 
+\end{exqbox}
+例題\ref{ラベル}の
+\begin{corbox}{系でのエネルギーの保存}{}
+  力学的エネルギーは系で保存されている。
+\end{corbox}
+\begin{lembox}{タイトル}{}
+何か書いてね
+\end{lembox}
+\end{document}
